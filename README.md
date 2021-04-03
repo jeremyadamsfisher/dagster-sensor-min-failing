@@ -1,6 +1,17 @@
 Adapted from https://docs.dagster.io/examples/deploy_docker.
 
-Minimial failing example of sensor in docker-compose environment:
+Minimial failing example of sensor in docker-compose environment. The only change is in `repo.py`:
+
+```
+@sensor(pipeline_name="my_pipeline")
+def always_skips(_context):
+    yield SkipReason("I always skip!")
+
+
+@repository
+def deploy_docker_repository():
+    return [my_pipeline, my_schedule, always_skips]
+```
 
 Run: `docker-compose up`
 
