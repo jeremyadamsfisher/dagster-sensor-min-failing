@@ -1,3 +1,9 @@
+## SOLUTION
+
+This error occured because my pipeline image and daemon image were running different versions of dagster
+
+## Problem
+
 Adapted from https://docs.dagster.io/examples/deploy_docker.
 
 Minimial failing example of sensor in docker-compose environment. The only change is in `repo.py`:
